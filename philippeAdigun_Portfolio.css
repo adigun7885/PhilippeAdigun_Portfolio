@@ -376,3 +376,13 @@ footer {
         margin-bottom: 1rem;
     }
 }
+html {
+    scroll-behavior: smooth; /* scroll fluide */
+    scroll-padding-top: 70px; /* hauteur du menu desktop */
+}
+
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 100px; /* ajustement pour menu mobile plus grand */
+    }
+}
