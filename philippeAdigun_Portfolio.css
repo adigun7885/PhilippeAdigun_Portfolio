@@ -1,0 +1,285 @@
+/* Réinitialisation */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Couleurs principales */
+:root {
+    --primary: #0A1F44; /* Bleu profond */
+    --accent1: #00C48C; /* Vert émeraude */
+    --accent2: #FFD700; /* Jaune vif */
+    --light: #F5F5F5;
+}
+
+/* Body */
+body {
+    background-color: var(--light);
+    color: var(--primary);
+    line-height: 1.6;
+}
+
+/* Header / Hero */
+header#hero {
+    background: url('philippeAdigun_Portfolio-hero.jpg') center/cover no-repeat fixed;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--light);
+    position: relative;
+}
+
+header#hero::after {
+    content: '';
+    position: absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: rgba(10,31,68,0.7);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.btn {
+    background: var(--accent1);
+    color: var(--light);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: var(--accent2);
+}
+
+/* Sections */
+section {
+    padding: 4rem 2rem;
+    max-width: 1000px;
+    margin: auto;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary);
+    font-size: 2rem;
+}
+
+/* Compétences */
+#skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.skill {
+    background: var(--accent1);
+    color: var(--light);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: transform 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.skill:hover {
+    transform: scale(1.1);
+}
+
+.skill span.icon {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* Expériences et Formations */
+#experience-container,
+#education-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.experience,
+.education {
+    background: var(--primary);
+    color: var(--light);
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.experience:hover,
+.education:hover {
+    transform: translateY(-5px);
+}
+
+/* Projets */
+#project-filters {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+#project-filters button {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background: var(--accent1);
+    color: var(--light);
+    transition: 0.3s;
+}
+
+#project-filters button.active,
+#project-filters button:hover {
+    background: var(--accent2);
+}
+
+#projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.project {
+    background: var(--primary);
+    color: var(--light);
+    padding: 1rem;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--primary);
+    color: var(--light);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+/* Fade-in au scroll */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Bouton téléchargement CV */
+#download-cv .btn {
+    font-size: 1.1rem;
+    padding: 0.8rem 2rem;
+    margin: 1rem auto;
+    display: inline-block;
+}
+
+/* Responsivité */
+@media (max-width:768px) {
+    .hero-content h1 { font-size: 2.2rem; }
+    .hero-content p { font-size: 1.2rem; }
+}
+
+/* Header / Hero */
+header#hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--light);
+    position: relative;
+    background: linear-gradient(270deg, #0A1F44, #00C48C, #FFD700);
+    background-size: 600% 600%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    min-height: 1.8rem; /* espace pour l’effet typing */
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-social {
+    background: var(--accent2);
+}
+
+.btn-social:hover {
+    background: var(--accent1);
+}
+
+/* Flèche de scroll */
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: var(--light);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {transform: translate(-50%, 0);}
+    50% {transform: translate(-50%, 10px);}
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {opacity:0;}
+    to {opacity:1;}
+}

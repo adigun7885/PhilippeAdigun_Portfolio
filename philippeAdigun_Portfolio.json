@@ -1,0 +1,63 @@
+{
+    "skills": [
+        {"name": "HTML5", "icon": "💻"},
+        {"name": "CSS3", "icon": "🎨"},
+        {"name": "JavaScript ES6", "icon": "⚡"},
+        {"name": "JSON", "icon": "🗂️"},
+        {"name": "Responsive Design", "icon": "📱"},
+        {"name": "Git/GitHub", "icon": "🔧"},
+        {"name": "[À REMPLACER]", "icon": "⭐"}
+    ],
+    "experience": [
+        {
+            "role": "Développeur Web",
+            "company": "[À REMPLACER]",
+            "start": "2023-09",
+            "end": "Présent",
+            "description": "Développement d'applications web et projets personnels."
+        },
+        {
+            "role": "Formation en programmation et développement d'applications",
+            "company": "CCNB",
+            "start": "[À REMPLACER]",
+            "end": "[À REMPLACER]",
+            "description": "Cours suivi pour acquérir des compétences en développement web et mobile."
+        }
+    ],
+    "projects": [
+        {
+            "title": "Projet JavaScript",
+            "category": "web",
+            "description": "Jeu ou application web développé en JS.",
+            "link": "#"
+        },
+        {
+            "title": "Projet FC 24",
+            "category": "jeu",
+            "description": "Simulation de joueurs et interactions dans le jeu FC 24.",
+            "link": "#"
+        },
+        {
+            "title": "[À REMPLACER]",
+            "category": "autre",
+            "description": "[À REMPLACER]",
+            "link": "#"
+        }
+    ],
+    "education": [
+        {
+            "degree": "Diplôme en Développement Web",
+            "school": "CCNB",
+            "start": "2023",
+            "end": "2024",
+            "description": "Cours complet de programmation et développement d'applications."
+        },
+        {
+            "degree": "[À REMPLACER]",
+            "school": "[À REMPLACER]",
+            "start": "[À REMPLACER]",
+            "end": "[À REMPLACER]",
+            "description": "[À REMPLACER]"
+        }
+    ]
+}
