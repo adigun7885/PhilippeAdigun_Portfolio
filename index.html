@@ -5,21 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio de Philippe Adigun</title>
     <link rel="stylesheet" href="philippeAdigun_Portfolio.css">
+    <style>
+        /* Menu de navigation fixe */
+        #main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 31, 68, 0.9);
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        #main-nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0.5rem 0;
+            margin: 0;
+            gap: 1.5rem;
+        }
+
+        #main-nav ul li a {
+            color: #F5F5F5;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        #main-nav ul li a:hover {
+            color: #FFD700;
+        }
+
+        /* Pour que le contenu ne soit pas caché derrière le menu */
+        body {
+            scroll-padding-top: 60px;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Menu de navigation -->
+    <nav id="main-nav">
+        <ul>
+            <li><a href="#hero">Accueil</a></li>
+            <li><a href="#about">À propos de moi</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#experience">Expériences</a></li>
+            <li><a href="#education">Formations & Certifications</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
     <!-- Header / Hero -->
-  <header id="hero">
-    <div class="hero-content">
-        <h1>Philippe Adigun</h1>
-        <p id="typed"></p>
-        <div class="hero-buttons">
-            <a href="#contact" class="btn">Contactez-moi</a>
-            <a href="https://github.com/adigun7885" target="_blank" class="btn btn-social">GitHub</a>
-            <a href="https://www.linkedin.com/in/philippe-adigun-b50ab61b8/?originalSubdomain=ci" target="_blank" class="btn btn-social">LinkedIn</a>
+    <header id="hero">
+        <div class="hero-content">
+            <h1>Philippe Adigun</h1>
+            <img src="philippeAdigun_Portfolio-hero.jpg" alt="Philippe en fantaisie" class="hero-img">
+            <p id="typed"></p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn">Contactez-moi</a>
+                <a href="https://github.com/adigun7885" target="_blank" class="btn btn-social">GitHub</a>
+                <a href="https://www.linkedin.com/in/philippe-adigun-b50ab61b8/?originalSubdomain=ci" target="_blank" class="btn btn-social">LinkedIn</a>
+            </div>
         </div>
-    </div>
-    <div class="scroll-down">&#x21E3;</div>
-</header>
+        <div class="scroll-down">&#x21E3;</div>
+    </header>
 
     <!-- À propos de moi -->
     <section id="about">

@@ -19,11 +19,88 @@ body {
     background-color: var(--light);
     color: var(--primary);
     line-height: 1.6;
+    scroll-padding-top: 60px; /* Pour que le contenu ne soit pas caché derrière le menu */
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Menu de navigation fixe avec hover fantaisie */
+#main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(10, 31, 68, 0.9); /* semi-transparent */
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 0;
+    margin: 0;
+    gap: 1.5rem;
+}
+
+#main-nav ul li a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: all 0.4s ease;
+}
+
+/* Hover dynamique fantaisie */
+#main-nav ul li a:hover {
+    color: var(--accent2);
+    transform: translateY(-3px) scale(1.1);
+    text-shadow: 0 0 8px var(--accent2), 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+/* Petit underline animé */
+#main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 3px;
+    background: var(--accent2);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+}
+
+#main-nav ul li a:hover::after {
+    width: 80%;
+}
+
+/* Mobile responsive menu hover */
+@media(max-width:768px){
+    #main-nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    #main-nav ul li a:hover {
+        transform: translateY(0) scale(1.05);
+        text-shadow: 0 0 6px var(--accent2);
+    }
+
+    #main-nav ul li a::after {
+        height: 2px;
+    }
 }
 
 /* Header / Hero */
 header#hero {
-    background: url('philippeAdigun_Portfolio-hero.jpg') center/cover no-repeat fixed;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -31,19 +108,15 @@ header#hero {
     text-align: center;
     color: var(--light);
     position: relative;
+    background: linear-gradient(270deg, #0A1F44, #00C48C, #FFD700);
+    background-size: 600% 600%;
+    animation: gradientBG 15s ease infinite;
 }
 
-header#hero::after {
-    content: '';
-    position: absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: rgba(10,31,68,0.7);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
 
 .hero-content h1 {
@@ -55,7 +128,13 @@ header#hero::after {
 .hero-content p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
-    animation: fadeIn 2s ease-in-out;
+    min-height: 1.8rem; /* espace pour l’effet typing */
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .btn {
@@ -71,6 +150,30 @@ header#hero::after {
 
 .btn:hover {
     background: var(--accent2);
+}
+
+.btn-social {
+    background: var(--accent2);
+}
+
+.btn-social:hover {
+    background: var(--accent1);
+}
+
+/* Flèche de scroll */
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: var(--light);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {transform: translate(-50%, 0);}
+    50% {transform: translate(-50%, 10px);}
 }
 
 /* Sections */
@@ -184,12 +287,6 @@ footer {
     color: var(--light);
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from {opacity:0;}
-    to {opacity:1;}
-}
-
 /* Fade-in au scroll */
 .fade-in {
     opacity: 0;
@@ -210,76 +307,72 @@ footer {
     display: inline-block;
 }
 
-/* Responsivité */
-@media (max-width:768px) {
+/* Hero Image Fantaisie Minimaliste */
+.hero-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid var(--accent1);
+    display: block;
+    margin: 2rem auto;
+    object-fit: cover;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3), 0 0 20px rgba(0,196,140,0.5);
+    transition: transform 0.6s, box-shadow 0.6s, border-color 0.6s;
+    background: #fff;
+}
+
+/* Hover effect dynamique */
+.hero-img:hover {
+    transform: scale(1.15) rotate(-3deg);
+    border-color: var(--accent2);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4), 0 0 25px rgba(255,215,0,0.6);
+}
+
+/* Section À propos avec image et texte */
+.about-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 3rem 1rem;
+    background: rgba(245,245,245,0.9);
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.about-section .about-text {
+    flex: 1 1 300px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.about-section .about-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.about-section .about-img:hover {
+    transform: rotate(5deg) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+/* Responsive */
+@media(max-width:768px) {
     .hero-content h1 { font-size: 2.2rem; }
     .hero-content p { font-size: 1.2rem; }
-}
 
-/* Header / Hero */
-header#hero {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--light);
-    position: relative;
-    background: linear-gradient(270deg, #0A1F44, #00C48C, #FFD700);
-    background-size: 600% 600%;
-    animation: gradientBG 15s ease infinite;
-}
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+    }
 
-@keyframes gradientBG {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-
-.hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    animation: fadeIn 1.5s ease-in-out;
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    min-height: 1.8rem; /* espace pour l’effet typing */
-}
-
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.btn-social {
-    background: var(--accent2);
-}
-
-.btn-social:hover {
-    background: var(--accent1);
-}
-
-/* Flèche de scroll */
-.scroll-down {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 2rem;
-    color: var(--light);
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% {transform: translate(-50%, 0);}
-    50% {transform: translate(-50%, 10px);}
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from {opacity:0;}
-    to {opacity:1;}
+    .about-section .about-img {
+        margin-bottom: 1rem;
+    }
 }
